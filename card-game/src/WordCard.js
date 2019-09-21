@@ -21,7 +21,6 @@ export default class WordCard extends Component {
     
     constructor(props){
         super(props)
-        
         this.state = prepareStateFromWord(this.props.value)
     }
     
@@ -33,6 +32,7 @@ export default class WordCard extends Component {
             if(guess.join('').toString() == this.state.word){
                 this.setState({guess: [], completed: true})
                 console.log("You Win")
+                document.getElementById('bt').style.visibility='visible'
             }
             else{
                 console.log("Wrong !! Let's play agian")
@@ -65,13 +65,13 @@ regame = () =>{
             activationHandler={this.activationHandler} />) }
             <br></br><h2>{this.state.completed? "Win":""}</h2>
             <br></br><br></br><h3 id="wr"> Win : 0</h3>
-            <h2 className="tooltip">HINT
+            <h2 className="tooltip" style={{color : "#EAEDED"}}>HINT
             <span className="tooltiptext">Name of this lab</span>
             </h2>
             <br></br>
-            <button className="button" style ={{backgroundColor : "#4CAF50"}} onClick={this.winRate}>Play agian</button> 
+            <button className="button"  id = "bt" style ={{backgroundColor : "#27AE60",visibility : 'hidden'}} onClick={this.winRate}>Play agian</button> 
             <br></br><br></br>
-            <button className="button" style ={{backgroundColor : "red"}} onClick={this.regame}>Undo</button>
+            <button className="button" style ={{backgroundColor : "#C0392B"}} onClick={this.regame}>Undo</button>
         </div>
         );
         

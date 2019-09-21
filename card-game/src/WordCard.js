@@ -11,7 +11,6 @@ const prepareStateFromWord = (given_word) => {
         chars,
         attempt: 1,
         guess: [],
-        round : 1,
         completed: false
     }
 }
@@ -37,12 +36,12 @@ export default class WordCard extends Component {
             }
             else{
                 console.log("Wrong !! Let's play agian")
-                this.setState({guess: [], attempt: this.state.attempt + 1 , round: this.state.round +1})
+                this.setState({guess: [], attempt: this.state.attempt + 1})
             }
      }
 }
 
-regame = () => {
+winRate = () => {
     if(this.state.completed == true){
         this.setState({guess:[], attempt: this.state.attempt + 1 })
         winrate = winrate+1
@@ -53,6 +52,10 @@ regame = () => {
     //    this.setState({guess:[], attempt: 1 })
     //}
 }
+
+regame = () =>{
+    this.setState({guess:[], attempt: this.state.attempt + 1 })
+}
     render() {
         return (
         <div >
@@ -60,13 +63,15 @@ regame = () => {
         { Array.from(this.state.chars).map((c, i) => <CharacterCard value={c} key={i} 
             attempt = {this.state.attempt}
             activationHandler={this.activationHandler} />) }
-            <br></br><h2 id="wr">Win : 0</h2>
-            <br></br><br></br><h3>{this.state.completed? "Win":""}</h3>
+            <br></br><h2>{this.state.completed? "Win":""}</h2>
+            <br></br><br></br><h3 id="wr"> Win : 0</h3>
             <h2 className="tooltip">HINT
             <span className="tooltiptext">Name of this lab</span>
             </h2>
             <br></br>
-            <button className="button" onClick={this.regame}>Play agian</button>
+            <button className="button" style ={{backgroundColor : "#4CAF50"}} onClick={this.winRate}>Play agian</button> 
+            <br></br><br></br>
+            <button className="button" style ={{backgroundColor : "red"}} onClick={this.regame}>Undo</button>
         </div>
         );
         

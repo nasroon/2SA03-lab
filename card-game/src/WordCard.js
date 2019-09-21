@@ -15,6 +15,8 @@ const prepareStateFromWord = (given_word) => {
     }
 }
 
+    
+
 export default class WordCard extends Component {
     constructor(props){
         super(props)
@@ -37,14 +39,17 @@ export default class WordCard extends Component {
      }
 }
 
+
+ 
     render() {
         return (
         <div>
-            <p>ROUND {this.state.attempt}</p>
+            
+            <h1>ROUND : {this.state.attempt}</h1>
         { Array.from(this.state.chars).map((c, i) => <CharacterCard value={c} key={i} 
             attempt = {this.state.attempt}
             activationHandler={this.activationHandler} />) }
-            <p>{this.state.completed? "WIN":""}</p>
+            <h3>{this.state.completed? "WIN":""}</h3>
         </div>
         );
         

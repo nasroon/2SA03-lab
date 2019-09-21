@@ -3,10 +3,12 @@ import './App.css';
 
 import WordCard from './WordCard';
 class App extends Component {
+  
   render() {
     return (
-    <div>
-      <WordCard value="world"/>
+    <div className= "App">
+      
+      <WordCard value="react"/>
     </div>
     );
    }

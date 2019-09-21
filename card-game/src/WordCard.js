@@ -28,8 +28,10 @@ export default class WordCard extends Component {
         if(guess.length == this.state.chars.length){
             if(guess.join('').toString() == this.state.word){
                 this.setState({guess: [], completed: true})
+                console.log("You Win")
             }
             else{
+                console.log("Wrong !! Let's play agian")
                 this.setState({guess: [], attempt: this.state.attempt + 1})
             }
      }

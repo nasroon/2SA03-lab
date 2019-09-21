@@ -39,7 +39,11 @@ export default class WordCard extends Component {
      }
 }
 
-
+regame = () => {
+    if(this.state.completed == true){
+        this.setState({guess:[], attempt: 1 })
+    }
+}
  
     render() {
         return (
@@ -49,7 +53,9 @@ export default class WordCard extends Component {
             attempt = {this.state.attempt}
             activationHandler={this.activationHandler} />) }
             <br></br><br></br><br></br><h3>{this.state.completed? "WIN":""}</h3>
-            <button className="button">PLAY AGAIN</button>
+            <h2 className="tooltip">HINT
+            <span class="tooltiptext">Name of this lab</span>
+            </h2>
         </div>
         );
         

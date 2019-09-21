@@ -43,13 +43,13 @@ export default class WordCard extends Component {
  
     render() {
         return (
-        <div>
-            
-            <h1>ROUND : {this.state.attempt}</h1>
+        <div >
+            <h1>ROUND : {this.state.attempt}</h1><br></br><br></br><br></br><br></br><br></br>
         { Array.from(this.state.chars).map((c, i) => <CharacterCard value={c} key={i} 
             attempt = {this.state.attempt}
             activationHandler={this.activationHandler} />) }
-            <h3>{this.state.completed? "WIN":""}</h3>
+            <br></br><br></br><br></br><h3>{this.state.completed? "WIN":""}</h3>
+            <button className="button">PLAY AGAIN</button>
         </div>
         );
         
